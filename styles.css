@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: sans-serif;
+    color: #121212;
+}
+#app {
+    max-width: 80%;
+    margin: 1rem auto;
+    text-align: center;
+}
+h1 {
+    font-size: 27px;
+}
+.pictures {
+    margin: 1rem 0 2rem;
+}
+.pictures > img {
+    max-width: 280px;
+}
+button {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+.fade-leave-to,
+.fade-enter-from {
+    opacity: 0;
+}
+.fade-enter-active {
+    transition: opacity 2s ease-in;
+}
+.fade-leave-active {
+    transition: opacity 0.5s ease-in;
+}

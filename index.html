@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en_US">
+<head>
+    <title>Vue Transitions Simplified</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="antialiased">
+    <div id="app" class="text-center my-4">
+        <h1 class="font-bold text-xl">Vue Transitions</h1>
+        <div class="pictures max-w-xs mx-auto my-4">
+            <transition-group
+                name="fade"
+                leave-to-class="opacity-0 transform translate-x-8"
+                enter-from-class="opacity-0 transform -translate-x-8"
+                enter-active-class="transition duration-500 delay-500"
+                leave-active-class="transition duration-500"
+            >
+                <img src="images/picture-1.jpg" v-if="pictureActive === 1">
+                <img src="images/picture-2.jpg" v-if="pictureActive === 2">
+                <img src="images/picture-3.jpg" v-if="pictureActive === 3">
+                <img src="images/picture-4.jpg" v-if="pictureActive === 4">
+            </transition>
+        </div>
+        <button @click="changePicture" class="inline-block text-sm font-semibold bg-gray-200 border border-gray-400 rounded py-1 px-3">Toggle Picture</button>
+    </div>
+    <script>
+        const RootComponent = {
+            data() {
+                return {
+                    pictureActive: 1
+                }
+            },
+            methods: {
+                changePicture() {
+                    if (this.pictureActive === 4) {
+                        this.pictureActive = 1;
+                        return;
+                    }
+
+                    this.pictureActive++;
+                }
+            }
+        }
+        Vue.createApp(RootComponent).mount('#app');
+    </script>
+</body>
+</html>
